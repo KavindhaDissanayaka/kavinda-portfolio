@@ -1,0 +1,156 @@
+.section {
+  padding-bottom: 80px;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--inv-bg);
+  color: var(--inv-ink);
+  padding: clamp(32px, 5vw, 72px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  transition: background 0.6s, color 0.6s;
+}
+
+.ring {
+  position: absolute;
+  left: -200px;
+  top: -200px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px solid var(--inv-line);
+  pointer-events: none;
+}
+
+.left {
+  position: relative;
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.eyebrow,
+.label,
+.prompt,
+.handle {
+  font-family: var(--font-mono), monospace;
+  color: var(--inv-muted);
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  margin: 0;
+  color: var(--inv-muted);
+  max-width: 400px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  padding: 16px 0;
+  min-height: 44px;
+  border-bottom: 1px solid var(--inv-line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.handle {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.form {
+  position: relative;
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid var(--inv-line);
+}
+
+.prompt {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.input {
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid var(--inv-line);
+  background: transparent;
+  color: var(--inv-ink);
+  transition: border-color 0.2s;
+}
+
+.input::placeholder {
+  color: var(--inv-muted);
+  opacity: 0.7;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--inv-ink);
+}
+
+.textarea {
+  padding: 14px 16px;
+  resize: vertical;
+}
+
+.submit {
+  margin-top: 8px;
+  min-height: 52px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--inv-ink);
+  color: var(--inv-bg);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.2s;
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+}

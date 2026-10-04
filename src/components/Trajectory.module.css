@@ -1,0 +1,82 @@
+.track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 9px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.node {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  transition: background 0.6s;
+}
+
+.nodeCurrent {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+
+.period {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.periodCurrent {
+  color: var(--accent);
+}
+
+.title {
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .track {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-left: 36px;
+  }
+  .track::before {
+    left: 9px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    height: auto;
+  }
+  .node {
+    position: absolute;
+    left: -36px;
+    top: 0;
+  }
+}
