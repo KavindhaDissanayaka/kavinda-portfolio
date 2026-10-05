@@ -18,10 +18,16 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className={styles.lede}>
+        {/* <p className={styles.lede}>
           {profile.role}, shaping <span className={`serif ${styles.ledeSerif}`}>{profile.focus}</span> for a calmer,
           more human future.
-        </p>
+        </p> */}
+        <p className={styles.lede}>
+  I turn complex business needs into{" "}
+  <span className={`serif ${styles.ledeSerif}`}>calm, dependable software</span>, from the database and APIs
+  behind the scenes to the screens people use every day, building systems that last and make work feel
+  simpler and more human.
+</p>
 
         <div className={styles.ctas}>
           <a href="#archive" className="pill pillAccent">
