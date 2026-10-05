@@ -112,5 +112,35 @@ export const Play = ({ size = 18 }: IconProps) => (
   </svg>
 );
 
+export const Download = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <path d="M12 3v12" />
+    <path d="M7 10l5 5 5-5" />
+    <path d="M5 21h14" />
+  </svg>
+);
+
+/* Atmosphere (theme) icons */
+export const Sun = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+  </svg>
+);
+
+export const Sunrise = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <path d="M17 18a5 5 0 0 0-10 0" />
+    <path d="M12 2v7M4.22 10.22l1.42 1.42M1 18h2M21 18h2M18.36 11.64l1.42-1.42M23 22H1" />
+    <path d="M8 6l4-4 4 4" />
+  </svg>
+);
+
+export const Moon = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+);
+
 export const NAV_ICONS = { home: Home, youtube: Youtube, facebook: Facebook, github: Github, linkedin: Linkedin, cpu: Cpu, mail: Mail } as const;
 export type NavIconName = keyof typeof NAV_ICONS;

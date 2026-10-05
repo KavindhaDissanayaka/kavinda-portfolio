@@ -7,15 +7,17 @@ import CurrentYear from "./CurrentYear";
 import AtmosphereSwitch from "./AtmosphereSwitch";
 import LiveClock from "./LiveClock";
 import NavOrb from "./NavOrb";
+import { Download, Send } from "./icons";
 import styles from "./Header.module.css";
 
 /**
- * `inner` = used on sub-pages (/youtube, /github …): there is no hero portrait,
- * so the portrait button is always visible (in its calm state) and a back link is shown.
+ * The portrait action button always sits top-left.
+ * Home page: it starts in its normal (calm) state and switches to the warning
+ * alarm once the hero portrait scrolls out of view — and calms down again on the way back.
+ * `inner` = sub-pages (/youtube, /github …): no hero portrait, so it stays calm and a back link is shown.
  */
 export default function Header({ inner = false }: { inner?: boolean }) {
-  // True once the hero portrait has scrolled out of view.
-  const [showOrb, setShowOrb] = useState(inner);
+  const [alert, setAlert] = useState(false);
 
   useEffect(() => {
     if (inner) return;
@@ -24,7 +26,7 @@ export default function Header({ inner = false }: { inner?: boolean }) {
 
     const update = () => {
       const headerHeight = 90;
-      setShowOrb(mainPortrait.getBoundingClientRect().bottom <= headerHeight);
+      setAlert(mainPortrait.getBoundingClientRect().bottom <= headerHeight);
     };
 
     update();
@@ -40,18 +42,7 @@ export default function Header({ inner = false }: { inner?: boolean }) {
     <header className={styles.wrap}>
       <div className={styles.bar}>
         <div className={styles.brand}>
-          <span className={styles.slot}>
-            {/* Initial shown while the hero portrait is visible; the portrait button replaces it afterwards. */}
-            <Link
-              href="/"
-              className={`${styles.markLink} ${showOrb ? styles.markHidden : ""}`}
-              aria-label={`${profile.firstName} ${profile.lastName} — home`}
-              tabIndex={showOrb ? -1 : 0}
-            >
-              <span className={`serif ${styles.mark}`}>{profile.firstName[0]}</span>
-            </Link>
-            <NavOrb visible={showOrb} calm={inner} />
-          </span>
+          <NavOrb alert={!inner && alert} />
           {inner ? (
             <Link href="/" className={styles.tag}>
               ← Back to portfolio
@@ -69,8 +60,19 @@ export default function Header({ inner = false }: { inner?: boolean }) {
 
         <div className={styles.actions}>
           <AtmosphereSwitch />
-          <Link href="/#transmit" className={styles.cta}>
-            Connect
+          <a
+            href={profile.cv.href}
+            download={profile.cv.fileName}
+            className={`${styles.btn} ${styles.cv}`}
+            aria-label="Download CV (PDF)"
+            title="Download CV (PDF)"
+          >
+            <Download size={17} />
+            <span className={styles.btnText}>Download CV</span>
+          </a>
+          <Link href="/#transmit" className={`${styles.btn} ${styles.cta}`} aria-label="Connect" title="Connect">
+            <Send size={16} />
+            <span className={styles.btnText}>Connect</span>
           </Link>
         </div>
       </div>

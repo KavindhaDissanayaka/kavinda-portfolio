@@ -8,7 +8,7 @@
 .bar {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 8px 8px 8px 20px;
+  padding: 8px 8px 8px 14px;
   border-radius: 999px;
   background: var(--glass);
   backdrop-filter: blur(20px);
@@ -23,36 +23,9 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   min-height: 44px;
-}
-
-.slot {
-  position: relative;
-  width: 46px;
-  height: 46px;
-  flex: 0 0 46px;
-  display: grid;
-  place-items: center;
-}
-
-.markLink {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.markHidden {
-  opacity: 0;
-  transform: scale(0.6);
-  pointer-events: none;
-}
-
-.mark {
-  font-size: 26px;
-  line-height: 1;
+  min-width: 0;
 }
 
 .tag,
@@ -65,6 +38,10 @@
 
 .tag {
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .clock {
@@ -72,6 +49,7 @@
   align-items: center;
   gap: 10px;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .tz {
@@ -82,39 +60,109 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  flex: none;
+}
+
+/* Shared shape for Download CV + Connect */
+.btn {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.cv {
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  background: transparent;
+}
+
+.cv:hover {
+  background: var(--surface-2);
+  border-color: var(--ink);
 }
 
 .cta {
-  min-height: 44px;
-  padding: 0 20px;
-  border-radius: 999px;
   background: var(--ink);
   color: var(--bg);
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
+  border: 1px solid var(--ink);
 }
 
-@media (max-width: 900px) {
-  .clock,
-  .cta {
+.cta svg {
+  display: none;
+}
+
+/* Laptop/tablet: drop the clock first */
+@media (max-width: 1080px) {
+  .clock {
     display: none;
   }
 }
 
-@media (max-width: 520px) {
+/* Tablet & mobile: the two buttons become round icon buttons */
+@media (max-width: 900px) {
+  .btn {
+    width: 44px;
+    padding: 0;
+  }
+  .btnText {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .cta svg {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
   .tag {
     display: none;
   }
-}
-
-@media (max-width: 520px) {
   .wrap {
     padding: 10px 12px 0;
   }
   .bar {
-    padding: 6px 8px 6px 12px;
+    padding: 6px 6px 6px 10px;
     gap: 8px;
+  }
+  .actions {
+    gap: 6px;
+  }
+  .btn {
+    width: 40px;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .wrap {
+    padding: 8px 8px 0;
+  }
+  .actions {
+    gap: 4px;
+  }
+  .btn {
+    width: 36px;
+    min-height: 36px;
   }
 }

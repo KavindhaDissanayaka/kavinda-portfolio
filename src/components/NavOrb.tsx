@@ -9,21 +9,16 @@ import { NAV_ICONS } from "./icons";
 import styles from "./NavOrb.module.css";
 
 /**
- * Portrait action button + robotic navigation panel.
- * `visible` is controlled by Header: hidden while the hero portrait is on screen,
- * shown (with the warning-alarm animation) once it scrolls away.
+ * Portrait action button + robotic navigation panel. Always visible in the header.
+ * `alert` is controlled by Header: false = normal (calm teal ring),
+ * true = warning-alarm animation (shown once the hero portrait has scrolled away).
  */
-export default function NavOrb({ visible, calm = false }: { visible: boolean; calm?: boolean }) {
+export default function NavOrb({ alert = false }: { alert?: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLSpanElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
-
-  // If the visitor scrolls back to the hero, the button disappears — close the menu with it.
-  useEffect(() => {
-    if (!visible) setOpen(false);
-  }, [visible]);
 
   // Close on outside click or Escape.
   useEffect(() => {
@@ -53,14 +48,11 @@ export default function NavOrb({ visible, calm = false }: { visible: boolean; ca
         ref={buttonRef}
         type="button"
         className={styles.orb}
-        data-visible={visible}
+        data-alert={alert}
         data-open={open}
-        data-calm={calm}
-        aria-label="Open navigation menu"
+        aria-label={open ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={open}
         aria-controls={panelId}
-        aria-hidden={!visible}
-        tabIndex={visible ? 0 : -1}
         onClick={() => setOpen((o) => !o)}
       >
         <span className={styles.face}>

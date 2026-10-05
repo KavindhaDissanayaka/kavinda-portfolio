@@ -60,6 +60,9 @@ export const profile = {
   focus: "building reliable backend systems and human-friendly business applications",
   portrait: "/portrait.webp",
 
+  /** The CV offered by the "Download CV" button. Replace the file in /public to update it. */
+  cv: { href: "/Kavinda_Dissanayaka_CV.pdf", fileName: "Kavinda_Dissanayaka_CV.pdf" },
+
   /** Used by the live clock in the header. The year shown is the real current year. */
   timezone: { offsetHours: 5.5, label: "UTC+05:30" },
   status: "Open to meaningful collaborations",

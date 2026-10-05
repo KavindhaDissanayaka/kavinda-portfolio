@@ -1,16 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Moon, Sun, Sunrise } from "./icons";
 import styles from "./AtmosphereSwitch.module.css";
 
 export const ATMOSPHERES = [
-  { id: "day", label: "Day" },
-  { id: "dawn", label: "Dawn" },
-  { id: "dusk", label: "Dusk" },
+  { id: "day", label: "Day", Icon: Sun },
+  { id: "dawn", label: "Dawn", Icon: Sunrise },
+  { id: "dusk", label: "Dusk", Icon: Moon },
 ] as const;
 
 export type Atmosphere = (typeof ATMOSPHERES)[number]["id"];
 
+/**
+ * Theme switch. Desktop shows text labels; on small screens each option
+ * becomes an icon button (sun / sunrise / moon) so the header stays compact.
+ */
 export default function AtmosphereSwitch() {
   const [current, setCurrent] = useState<Atmosphere>("day");
 
@@ -31,16 +36,23 @@ export default function AtmosphereSwitch() {
   };
 
   return (
-    <div role="group" aria-label="Atmosphere" className={styles.group}>
-      {ATMOSPHERES.map((a) => (
+    <div role="group" aria-label="Theme" className={styles.group}>
+      {ATMOSPHERES.map(({ id, label, Icon }) => (
         <button
-          key={a.id}
+          key={id}
           type="button"
-          aria-pressed={current === a.id}
-          className={`${styles.option} ${current === a.id ? styles.active : ""}`}
-          onClick={() => choose(a.id)}
+          aria-pressed={current === id}
+          aria-label={`${label} theme`}
+          title={`${label} theme`}
+          className={`${styles.option} ${current === id ? styles.active : ""}`}
+          onClick={() => choose(id)}
         >
-          {a.label}
+          <span className={styles.label} aria-hidden>
+            {label}
+          </span>
+          <span className={styles.icon} aria-hidden>
+            <Icon size={17} />
+          </span>
         </button>
       ))}
     </div>

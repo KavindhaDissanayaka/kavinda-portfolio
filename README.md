@@ -20,6 +20,8 @@ Requires Node.js 20.9 or newer.
 Replace those values and the whole site updates. You shouldn't need to touch the components for content changes.
 
 - **Portrait:** replace `public/portrait.webp` (a square image works best).
+- **CV:** the header's "Download CV" button serves `public/Kavinda_Dissanayaka_CV.pdf`. Replace that file to update it,
+  or point `profile.cv` in `src/data/profile.ts` at a different file.
 - **Project cards & link previews:** every project in `profile.projects` becomes an equal-size card with its summary. If `href` is a real URL, a link preview (picture, title, description, domain) is fetched on the server and shown on the card. Use `"#"` or `""` for projects without a public link. Previews refresh daily.
 - **Project images:** put files in `public/projects/` and set `image: "/projects/name.jpg"` on a project.
 - **Timezone for the live clock:** `profile.timezone` (the year shown everywhere is the real current year).
@@ -52,9 +54,10 @@ src/
 
 ## Portrait navigation menu
 
-The round portrait button (top-left) is hidden while the hero portrait is on screen. Once the hero portrait scrolls away it
-appears with a warning-alarm animation (hazard ring, siren pings, shake, blinking "!"). Clicking it opens the robotic menu;
-Esc, an outside click, or scrolling back to the top closes it.
+The round portrait button (top-left) is always in the header. On the home page it starts in its normal state (steady teal
+ring). Once the hero portrait scrolls out of view it switches to a warning-alarm animation (hazard ring, siren pings, shake,
+blinking "!"), and returns to normal when you scroll back up. On the inner pages it stays normal. Clicking it opens the
+robotic menu; Esc or an outside click closes it.
 
 - **Menu items:** edit `nav` in `src/data/profile.ts`. `href: "#archive"` jumps inside the page, `https://…` opens a new tab,
   and `href: ""` shows the item as **OFFLINE** until you paste a real link (LinkedIn starts this way).

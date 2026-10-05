@@ -1,5 +1,6 @@
 .group {
   display: flex;
+  flex: none;
   padding: 4px;
   gap: 2px;
   border-radius: 999px;
@@ -17,11 +18,20 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   transition: background 0.3s, color 0.3s;
 }
 
 .option:hover {
   color: var(--ink);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
 }
 
 .active,
@@ -30,11 +40,32 @@
   color: var(--bg);
 }
 
-@media (max-width: 420px) {
+.icon {
+  display: none;
+}
+
+/* Small screens: labels give way to icons */
+@media (max-width: 640px) {
+  .group {
+    padding: 3px;
+  }
   .option {
-    padding: 0 10px;
-    font-size: 10px;
-    letter-spacing: 0.04em;
-    min-height: 34px;
+    width: 36px;
+    min-height: 36px;
+    padding: 0;
+  }
+  .label {
+    display: none;
+  }
+  .icon {
+    display: grid;
+    place-items: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .option {
+    width: 32px;
+    min-height: 32px;
   }
 }
