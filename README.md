@@ -86,3 +86,20 @@ Set `metadataBase` in `layout.tsx` to your domain so social preview images resol
 
 Uses real buttons, labels and `aria-expanded`/`aria-pressed` states, with visible focus rings.
 Animations (orbits, marquee, pulse) turn off automatically when the visitor's system asks for reduced motion.
+
+## In-site pages (menu → YouTube / GitHub / Facebook / LinkedIn)
+
+Every menu item opens inside the portfolio (same tab) — the portrait button stays available on every page.
+
+| Route | What it shows |
+|---|---|
+| `/youtube` | Latest uploads from the channel feed. Click a video and it plays in an embedded player on the page. |
+| `/github` | All public repositories from the GitHub API, with search, language filter, sort and a hide-forks switch. |
+| `/facebook` | A portal page with a button to your profile (a whole profile can't be embedded), plus any **public posts/videos** you list in `socials.facebook.posts` shown right on the page. A Facebook *Page* can also show its timeline via `socials.facebook.pageUrl`. |
+| `/linkedin` | A portal page with a button to your profile. LinkedIn forbids being embedded, so it opens in a new tab. |
+
+**Accounts live in one place:** `socials` in `src/data/profile.ts` (GitHub username, YouTube handle, Facebook and LinkedIn URLs).
+
+- **YouTube:** set `socials.youtube.channelId` (already filled in). The page lists the channel's 15 most recent public videos; if the video feed is ever unreachable it falls back to YouTube's own "all uploads" player, so videos still play.
+- **GitHub:** data refreshes every 30 minutes. Anonymous requests are limited by GitHub, so for reliable results add an environment variable `GITHUB_TOKEN` (a classic token with **no scopes** is enough) — in Vercel: Project → Settings → Environment Variables.
+- If either service can't be reached, the page shows a short notice with a link to the real profile instead of an error.

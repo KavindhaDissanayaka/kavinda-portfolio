@@ -19,11 +19,38 @@ export type Stat = { value: string; suffix?: string; label: string };
 export type NavItem = {
   label: string;
   hint: string;
-  /** "#section" jumps inside the page, "https://…" opens in a new tab, "" shows the item as OFFLINE until you add a link. */
+  /** "/page" opens an in-site page, "/#section" jumps to a section of the home page,
+   *  "https://…" opens in a new tab, "" shows the item as OFFLINE until you add a link. */
   href: string;
-  icon: "youtube" | "facebook" | "github" | "linkedin" | "cpu" | "mail";
+  icon: "home" | "youtube" | "facebook" | "github" | "linkedin" | "cpu" | "mail";
 };
 export type Link = { label: string; handle: string; href: string };
+
+/**
+ * One place for every outside account. The in-site pages (/youtube, /github,
+ * /facebook, /linkedin) and the contact section all read from here.
+ */
+export const socials = {
+  github: { username: "KavindhaDissanayaka" },
+  youtube: {
+    handle: "yourkavinda",
+    /** Your channel id (YouTube Studio → Settings → Channel → Advanced). Set, so no lookup is needed. */
+    channelId: "UCso63j0kzyhTLSvHthZ9ZIw",
+  },
+  facebook: {
+    handle: "kavindu.dissanayaka.33",
+    url: "https://www.facebook.com/kavindu.dissanayaka.33/",
+    /**
+     * Public posts/videos to show on the /facebook page. Paste each post's link
+     * (post → "…" → Copy link). The post must be set to Public. Example:
+     *   posts: ["https://www.facebook.com/kavindu.dissanayaka.33/posts/123456789"],
+     */
+    posts: [] as string[],
+    /** Only if you have a Facebook *Page* (not a personal profile): its link shows the Page's timeline. */
+    pageUrl: "",
+  },
+  linkedin: { handle: "kavindadissanayka", url: "https://www.linkedin.com/in/kavindadissanayka" },
+};
 
 export const profile = {
   firstName: "Kavinda",
@@ -138,20 +165,21 @@ export const profile = {
 
   /** Items in the robotic navigation menu (the portrait button, top-left). Reorder or edit freely. */
   nav: [
-    { label: "YouTube", hint: "Videos & walkthroughs", href: "https://www.youtube.com/@yourkavinda", icon: "youtube" },
-    { label: "Facebook", hint: "Updates & community", href: "https://www.facebook.com/kavindu.dissanayaka.33/", icon: "facebook" },
-    { label: "Simulations", hint: "Projects I have built", href: "#archive", icon: "cpu" },
-    { label: "GitHub", hint: "Source & repositories", href: "https://github.com/KavindhaDissanayaka/", icon: "github" },
-    { label: "LinkedIn", hint: "Professional network", href: "https://www.linkedin.com/in/kavindadissanayka", icon: "linkedin" }, // ← paste your profile URL
-    { label: "Contact", hint: "Open a channel", href: "#transmit", icon: "mail" },
+    { label: "Portfolio", hint: "Back to the main page", href: "/", icon: "home" },
+    { label: "YouTube", hint: "Videos, played right here", href: "/youtube", icon: "youtube" },
+    { label: "Facebook", hint: "Updates & community", href: "/facebook", icon: "facebook" },
+    { label: "Simulations", hint: "Projects I have built", href: "/#archive", icon: "cpu" },
+    { label: "GitHub", hint: "All public repositories", href: "/github", icon: "github" },
+    { label: "LinkedIn", hint: "Professional network", href: "/linkedin", icon: "linkedin" },
+    { label: "Contact", hint: "Open a channel", href: "/#transmit", icon: "mail" },
   ] satisfies NavItem[],
 
   contact: {
     email: "[your@email.com]",
     intro: "Interested in backend engineering, ASP.NET, APIs, business applications, architecture or building something useful from the ground up? Let's open a channel.",
     links: [
-      { label: "LinkedIn", handle: "[add LinkedIn handle]", href: "#" },
-      { label: "GitHub", handle: "KavindhaDissanayaka", href: "https://github.com/KavindhaDissanayaka/" },
+      { label: "LinkedIn", handle: socials.linkedin.handle, href: socials.linkedin.url },
+      { label: "GitHub", handle: socials.github.username, href: `https://github.com/${socials.github.username}` },
     ] satisfies Link[],
   },
 };

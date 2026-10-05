@@ -127,6 +127,29 @@
   box-shadow: 0 0 0 2px var(--hud), 0 0 18px rgba(94, 242, 212, 0.5);
 }
 
+/* calm variant: used on inner pages (no alarm, steady teal ring) */
+.orb[data-calm="true"][data-visible="true"] {
+  animation: calmIn 0.45s ease both;
+}
+.orb[data-calm="true"]::before {
+  background: repeating-conic-gradient(var(--hud) 0 14deg, #12171c 14deg 28deg);
+  animation-duration: 10s;
+}
+.orb[data-calm="true"]::after,
+.orb[data-calm="true"] .warn {
+  animation: none;
+  opacity: 0;
+}
+.orb[data-calm="true"] .face {
+  animation: none;
+  box-shadow: 0 0 0 2px var(--hud), 0 0 16px rgba(94, 242, 212, 0.45);
+}
+
+@keyframes calmIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: none; }
+}
+
 /* ───── Robotic navigation panel ───── */
 .panel {
   --hud: #5ef2d4;
@@ -332,6 +355,17 @@ a.item:focus-visible {
   font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--hud);
+}
+
+.here {
+  border-color: rgba(94, 242, 212, 0.5);
+  background: rgba(94, 242, 212, 0.1);
+}
+.here::before {
+  transform: scaleY(1);
+}
+.here .status {
+  color: #effffb;
 }
 
 .off {

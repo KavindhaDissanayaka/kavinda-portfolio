@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import { fullName, profile } from "@/data/profile";
 import { NAV_ICONS } from "./icons";
@@ -11,7 +13,8 @@ import styles from "./NavOrb.module.css";
  * `visible` is controlled by Header: hidden while the hero portrait is on screen,
  * shown (with the warning-alarm animation) once it scrolls away.
  */
-export default function NavOrb({ visible }: { visible: boolean }) {
+export default function NavOrb({ visible, calm = false }: { visible: boolean; calm?: boolean }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLSpanElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -52,6 +55,7 @@ export default function NavOrb({ visible }: { visible: boolean }) {
         className={styles.orb}
         data-visible={visible}
         data-open={open}
+        data-calm={calm}
         aria-label="Open navigation menu"
         aria-expanded={open}
         aria-controls={panelId}
@@ -86,9 +90,10 @@ export default function NavOrb({ visible }: { visible: boolean }) {
           <ul className={styles.list}>
             {profile.nav.map((item, i) => {
               const Icon = NAV_ICONS[item.icon];
-              const internal = item.href.startsWith("#");
               const offline = item.href === "";
-              const status = offline ? "OFFLINE" : internal ? "JUMP" : "OPEN ↗";
+              const internal = item.href.startsWith("/") || item.href.startsWith("#");
+              const here = internal && !item.href.includes("#") && item.href === pathname;
+              const status = offline ? "OFFLINE" : here ? "HERE" : internal ? "GO" : "OPEN ↗";
               const content = (
                 <>
                   <span className={styles.idx}>{String(i + 1).padStart(2, "0")}</span>
@@ -103,6 +108,7 @@ export default function NavOrb({ visible }: { visible: boolean }) {
                 </>
               );
               const style = { "--i": i } as CSSProperties;
+              const cls = `${styles.item} ${here ? styles.here : ""}`;
 
               return (
                 <li key={item.label} style={style} className={styles.row}>
@@ -110,13 +116,12 @@ export default function NavOrb({ visible }: { visible: boolean }) {
                     <span className={`${styles.item} ${styles.off}`} aria-disabled="true">
                       {content}
                     </span>
+                  ) : internal ? (
+                    <Link href={item.href} className={cls} aria-current={here ? "page" : undefined} onClick={() => setOpen(false)}>
+                      {content}
+                    </Link>
                   ) : (
-                    <a
-                      href={item.href}
-                      className={styles.item}
-                      onClick={() => setOpen(false)}
-                      {...(internal ? {} : { target: "_blank", rel: "noreferrer" })}
-                    >
+                    <a href={item.href} className={cls} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>
                       {content}
                     </a>
                   )}

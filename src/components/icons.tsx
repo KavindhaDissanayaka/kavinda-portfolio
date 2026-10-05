@@ -82,5 +82,35 @@ export const Mail = ({ size = 18 }: IconProps) => (
   </svg>
 );
 
-export const NAV_ICONS = { youtube: Youtube, facebook: Facebook, github: Github, linkedin: Linkedin, cpu: Cpu, mail: Mail } as const;
+
+export const Home = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <path d="M3 10.5L12 3l9 7.5" />
+    <path d="M5 9.5V21h14V9.5" />
+    <path d="M10 21v-6h4v6" />
+  </svg>
+);
+
+export const Star = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+);
+
+export const GitFork = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <circle cx="6" cy="4" r="2" />
+    <circle cx="18" cy="4" r="2" />
+    <circle cx="12" cy="20" r="2" />
+    <path d="M6 6v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V6M12 12v6" />
+  </svg>
+);
+
+export const Play = ({ size = 18 }: IconProps) => (
+  <svg {...base(size)}>
+    <path d="M7 4.5v15l13-7.5z" />
+  </svg>
+);
+
+export const NAV_ICONS = { home: Home, youtube: Youtube, facebook: Facebook, github: Github, linkedin: Linkedin, cpu: Cpu, mail: Mail } as const;
 export type NavIconName = keyof typeof NAV_ICONS;
