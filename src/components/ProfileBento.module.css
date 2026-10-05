@@ -155,3 +155,23 @@
     min-height: 0;
   }
 }
+
+@media (max-width: 640px) {
+  .bento {
+    gap: 12px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .who,
+  .now {
+    padding: 24px;
+    gap: 24px;
+  }
+  .nowText {
+    font-size: 20px;
+  }
+  .statValue {
+    font-size: 52px;
+  }
+}

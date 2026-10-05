@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { profile } from "@/data/profile";
+import CurrentYear from "./CurrentYear";
 import AtmosphereSwitch from "./AtmosphereSwitch";
 import LiveClock from "./LiveClock";
 import NavOrb from "./NavOrb";
@@ -56,7 +57,7 @@ export default function Header({ inner = false }: { inner?: boolean }) {
               ← Back to portfolio
             </Link>
           ) : (
-            <span className={styles.tag}>Human Interface · v2100</span>
+            <span className={styles.tag}>Human Interface · v<CurrentYear /></span>
           )}
         </div>
 

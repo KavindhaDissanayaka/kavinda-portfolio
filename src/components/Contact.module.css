@@ -154,3 +154,25 @@
 .submit:hover {
   transform: translateY(-2px);
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding-bottom: 56px;
+  }
+  .panel {
+    padding: 28px 20px;
+    gap: 36px;
+    border-radius: 28px;
+  }
+  .form {
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+  .link {
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+  .input {
+    font-size: 16px; /* stops iOS Safari zooming in when a field is focused */
+  }
+}

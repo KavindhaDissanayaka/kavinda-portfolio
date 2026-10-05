@@ -8,6 +8,9 @@ import Archive from "@/components/Archive";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+/** Re-generate hourly so link previews refresh and the year/date never go stale. */
+export const revalidate = 3600;
+
 export default function Home() {
   return (
     <div>

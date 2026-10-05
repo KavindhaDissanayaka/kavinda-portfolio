@@ -5,10 +5,11 @@ import { GeistMono } from "geist/font/mono";
 import "@fontsource/instrument-serif/latin-400.css";
 import "@fontsource/instrument-serif/latin-400-italic.css";
 import { fullName, profile } from "@/data/profile";
+import { getCurrentYear } from "@/lib/year";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${fullName} — Human Interface 2100`,
+  title: `${fullName} — Human Interface ${getCurrentYear()}`,
   description: `${fullName} · ${profile.role}. Personal portfolio.`,
   openGraph: {
     title: fullName,

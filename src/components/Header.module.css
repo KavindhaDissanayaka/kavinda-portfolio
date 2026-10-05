@@ -108,3 +108,13 @@
     display: none;
   }
 }
+
+@media (max-width: 520px) {
+  .wrap {
+    padding: 10px 12px 0;
+  }
+  .bar {
+    padding: 6px 8px 6px 12px;
+    gap: 8px;
+  }
+}

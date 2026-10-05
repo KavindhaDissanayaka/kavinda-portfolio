@@ -60,7 +60,7 @@ export const profile = {
   focus: "building reliable backend systems and human-friendly business applications",
   portrait: "/portrait.webp",
 
-  /** Used by the live clock in the header. Year is shown as 2100 by design. */
+  /** Used by the live clock in the header. The year shown is the real current year. */
   timezone: { offsetHours: 5.5, label: "UTC+05:30" },
   status: "Open to meaningful collaborations",
 
@@ -136,32 +136,147 @@ export const profile = {
     },
   ] satisfies Milestone[],
 
-  projects: [
+projects: [
+  {
+    code: "P—01",
+    title: "EcoSri Digital Receipt",
+    category: "Vehicle Emission · ASP.NET · PDF · QR",
+    year: "2026",
+    summary:
+      "A digital vehicle-emission certificate and receipt solution that transforms legacy testing data into customer-facing digital documents. The system handles vehicle information, certificate generation, QR/barcode processing, vehicle images and SMS-based access to digital receipts.",
+    href: "https://mytest.laugfs.lk/?vin=wos-2zwHpp3vSeCSRphl7GUvlBIN4XthbjcpjUseCu41",
+  },
+
+  {
+    code: "P—02",
+    title: "Performance Management System",
+    category: "HR · ASP.NET Web API · SQL Server",
+    year: "2026",
+    summary:
+      "An enterprise performance-management platform supporting employee goals, performance stages, scoring, supervisor workflows and management reporting. Built around complex SQL reporting and business rules, including performance ratings and bell-curve analysis.",
+    href: "https://pms.laugfs.lk/",
+  },
+
+  {
+    code: "P—03",
+    title: "Employee & Member Management",
+    category: "ASP.NET · React · SQL Server",
+    year: "2026",
+    summary:
+      "A collection of business management applications for maintaining employee, contact and family-member information. The solution combines structured Web APIs with reusable React components, modal workflows, data tables and relational database operations.",
+    href: "#",
+  },
+
+  {
+    code: "P—04",
+    title: "Bell Curve Performance Reporting",
+    category: "ASP.NET Web API · React · SQL Server",
+    year: "2026",
+    summary:
+      "A performance-rating and bell-curve reporting system designed to analyse employee results across companies, departments and employee categories. Includes rating workflows, performance sections, PMS cycles and data-driven reporting.",
+    href: "#",
+  },
+
+  {
+    code: "P—05",
+    title: "Document Management & eForms",
+    category: "ASP.NET · SQL Server · Enterprise Workflow",
+    year: "2026",
+    summary:
+      "Enterprise document and electronic-form workflows for managing document submissions, processing stages, assignments and service-level requirements. Includes workflow tracking, SLA-related processing, document uploads and operational reporting.",
+    href: "https://eforms.laugfs.lk/  ",
+  },
+
+  {
+    code: "P—06",
+    title: "Employee Contact Management",
+    category: "ASP.NET Core · Web API · EF Core",
+    year: "2026",
+    summary:
+      "A structured employee contact-management API supporting multiple contact numbers and email addresses per employee. Designed with relational data modelling, composite keys, Entity Framework Core and a layered Web API architecture.",
+    href: "#",
+  },
+
+  {
+    code: "P—07",
+    title: "Organization Management API",
+    category: "ASP.NET Core · Clean Architecture · SQL Server",
+    year: "2026",
+    summary:
+      "A modern organization-management API developed using ASP.NET Core and a layered architecture. The project demonstrates dependency injection, repository and service patterns, Entity Framework Core and separation of business logic from infrastructure concerns.",
+    href: "#",
+  },
+
+  {
+    code: "P—08",
+    title: "GAS CRM",
+    category: "Next.js · React · TypeScript · Prisma",
+    year: "2026",
+    summary:
+      "A modern CRM application built around a React and Next.js frontend with TypeScript and Prisma-based data access. The project represents the transition from traditional ASP.NET business applications toward modern full-stack web development.",
+    href: "#",
+  },
+
+  {
+    code: "P—09",
+    title: "Finance & Loan Tracker",
+    category: "Flutter · Dart · SQLite",
+    year: "2026",
+    summary:
+      "A standalone mobile finance-management application for tracking income, expenses, loans and partial repayments. Designed with local SQLite storage and accounting-oriented data structures including chart-of-accounts concepts and financial reporting.",
+    href: "#",
+  },
+
+  {
+    code: "P—10",
+    title: "Employee Enrollment Management",
+    category: "ASP.NET Core · React · Clean Architecture",
+    year: "2026",
+    summary:
+      "A full-stack employee enrollment concept connecting companies, departments, positions, employees, user accounts and roles. Designed around Clean Architecture, Web APIs, role-based access control, authentication and audit-friendly business workflows.",
+    href: "#",
+  },
     {
-      code: "P—01",
-      title: "EcoSri Digital Receipt",
-      category: "Digital Receipt · ASP.NET",
-      year: "2026",
-      summary: "A digital vehicle-emission receipt experience combining legacy enterprise data, certificate generation, vehicle imagery, QR/barcode handling and SMS delivery workflows.",
-      href: "#",
-    },
-    {
-      code: "P—02",
-      title: "Performance Management Systems",
-      category: "HR · Web API · SQL Server",
-      year: "2026",
-      summary: "Enterprise performance-management workflows involving employee dashboards, scoring, stages, goals, supervisors and bell-curve reporting.",
-      href: "#",
-    },
-    {
-      code: "P—03",
-      title: "Employee & Member Management",
-      category: "ASP.NET · React",
-      year: "2026",
-      summary: "Business applications for employee, contact and family-member information, built around structured APIs, reusable UI components and relational data.",
-      href: "#",
-    },
-  ] satisfies Project[],
+    code: "P—11",
+    title: "Export & Warehouse Management System",
+    category: "ERP · ASP.NET WinForms · SQL Server",
+    year: "FutureTeck",
+    summary:
+      "An enterprise export and warehouse management application covering tea auction purchases, blend creation, purchased-item allocation, internal and external blend operation management, shortage and excess quantity recording before packaging, blend packing, shipment allocation and final blend shipment processing.",
+    href: "#",
+  },
+
+  {
+    code: "P—12",
+    title: "Timber Management System",
+    category: "ERP · ASP.NET WinForms · SQL Server",
+    year: "FutureTeck",
+    summary:
+      "An estate-focused timber management application supporting estate-wise timber inventory, tree-level height and girth recording, tree status maintenance, timber valuation, timber sale allocation and timber valuation reporting.",
+    href: "#",
+  },
+
+  {
+    code: "P—13",
+    title: "Annual Detail Budget",
+    category: "ERP · ASP.NET WinForms · Finance · SQL Server",
+    year: "FutureTeck",
+    summary:
+      "A financial budgeting application supporting monthly budget allocation against chart-of-account structures, month-end detailed budget versus actual comparisons, budget-based reporting including P&L, NSA and trial balance reports, and alerts when expenditure exceeds allocated budgets.",
+    href: "#",
+  },
+
+  {
+    code: "P—14",
+    title: "Centralized Store Management",
+    category: "ERP · ASP.NET WinForms · Inventory · SQL Server",
+    year: "FutureTeck",
+    summary:
+      "A centralized inventory management application supporting purchase order generation against purchase requisitions, GRN-based stock balance maintenance using FIFO principles, item issuing processes and estate-wise GRN tracking.",
+    href: "#",
+  }
+] satisfies Project[],
+
 
   /** Items in the robotic navigation menu (the portrait button, top-left). Reorder or edit freely. */
   nav: [

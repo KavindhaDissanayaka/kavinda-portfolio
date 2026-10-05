@@ -128,3 +128,23 @@
     padding-right: 0;
   }
 }
+
+@media (max-width: 640px) {
+  .layout {
+    gap: 32px;
+  }
+  .trigger {
+    gap: 14px;
+    padding: 22px 0;
+  }
+  .num {
+    width: 24px;
+  }
+  .toggle {
+    width: 40px;
+    height: 40px;
+  }
+  .body {
+    font-size: 16px;
+  }
+}

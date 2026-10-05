@@ -474,3 +474,12 @@ a.item:focus-visible {
     display: none;
   }
 }
+
+@media (max-width: 520px) {
+  .panel {
+    width: min(370px, calc(100vw - 48px));
+    max-height: calc(100dvh - 110px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}

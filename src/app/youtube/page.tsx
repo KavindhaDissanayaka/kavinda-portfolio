@@ -16,8 +16,8 @@ export default async function YoutubePage() {
   return (
     <PageShell
       eyebrow="[ CHANNEL 01 ] — YouTube"
-      title="Video"
-      accent="feed."
+      title="Your"
+      accent="Kavinda"
       intro="The latest uploads from my channel. Pick one and it plays right here, without leaving the portfolio."
       actions={
         <>

@@ -1,4 +1,4 @@
-# Kavinda Dissanayaka — Human Interface 2100
+# Kavinda Dissanayaka — Human Interface
 
 A calm, futuristic personal portfolio built with **Next.js 16 (App Router)**, **React 19** and **TypeScript**.
 No UI framework: plain CSS Modules plus design tokens, so every style is easy to find and change.
@@ -20,8 +20,9 @@ Requires Node.js 20.9 or newer.
 Replace those values and the whole site updates. You shouldn't need to touch the components for content changes.
 
 - **Portrait:** replace `public/portrait.webp` (a square image works best).
+- **Project cards & link previews:** every project in `profile.projects` becomes an equal-size card with its summary. If `href` is a real URL, a link preview (picture, title, description, domain) is fetched on the server and shown on the card. Use `"#"` or `""` for projects without a public link. Previews refresh daily.
 - **Project images:** put files in `public/projects/` and set `image: "/projects/name.jpg"` on a project.
-- **Timezone for the live clock:** `profile.timezone` (the year always reads 2100 on purpose).
+- **Timezone for the live clock:** `profile.timezone` (the year shown everywhere is the real current year).
 
 ## Project structure
 
@@ -34,14 +35,14 @@ src/
   components/
     Header.tsx              Floating top bar; decides when the portrait button shows   (client)
     NavOrb.tsx              Portrait action button + robotic navigation panel          (client)
-    LiveClock.tsx           Ticking "2100" clock            (client)
+    LiveClock.tsx           Ticking live clock               (client)
     AtmosphereSwitch.tsx    Day / Dawn / Dusk theme switch  (client)
     Hero.tsx                Name, intro, portrait lens with orbit rings
     Marquee.tsx             Scrolling statement band
     ProfileBento.tsx        01 — Profile bento grid
     Capabilities.tsx        02 — Expanding capability list  (client)
     Trajectory.tsx          03 — Timeline
-    Archive.tsx             04 — Selected work
+    Archive.tsx             04 — Selected work (cards + link previews)
     Contact.tsx             05 — Contact form + links       (client)
     Footer.tsx              Large name across the bottom
     icons.tsx               Inline stroke icons

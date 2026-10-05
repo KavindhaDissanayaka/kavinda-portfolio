@@ -210,3 +210,39 @@
     padding: 56px 48px;
   }
 }
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    gap: 24px;
+  }
+  .copy {
+    gap: 22px;
+  }
+  .lede {
+    font-size: 19px;
+  }
+  .ledeSerif {
+    font-size: 22px;
+  }
+  .ctas > a {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .name {
+    font-size: clamp(40px, 14.5vw, 64px);
+  }
+  .lensWrap {
+    padding: 48px 40px;
+  }
+  .orbitOuter {
+    inset: -40px;
+  }
+  .orbitInner {
+    inset: -20px;
+  }
+}

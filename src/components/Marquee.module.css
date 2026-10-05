@@ -30,3 +30,14 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 640px) {
+  .band {
+    padding: 14px 0;
+  }
+  .track {
+    font-size: 24px;
+    gap: 32px;
+    padding-left: 32px;
+  }
+}

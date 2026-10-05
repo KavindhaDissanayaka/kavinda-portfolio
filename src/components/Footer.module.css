@@ -31,3 +31,11 @@
   text-transform: uppercase;
   color: var(--muted);
 }
+
+@media (max-width: 520px) {
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

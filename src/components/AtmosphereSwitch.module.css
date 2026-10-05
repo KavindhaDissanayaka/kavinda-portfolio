@@ -29,3 +29,12 @@
   background: var(--ink);
   color: var(--bg);
 }
+
+@media (max-width: 420px) {
+  .option {
+    padding: 0 10px;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    min-height: 34px;
+  }
+}

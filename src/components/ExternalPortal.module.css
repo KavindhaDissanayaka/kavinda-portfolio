@@ -99,3 +99,14 @@
     padding: 28px;
   }
 }
+
+@media (max-width: 520px) {
+  .panel {
+    padding: 24px 20px;
+    gap: 20px;
+  }
+  .go {
+    width: 100%;
+    justify-content: center;
+  }
+}

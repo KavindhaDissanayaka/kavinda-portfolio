@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { fullName, profile } from "@/data/profile";
 import { ArrowRight } from "./icons";
+import CurrentYear from "./CurrentYear";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
     <section id="top" className={`container ${styles.hero}`}>
       <div className={styles.copy}>
-        <span className={`eyebrow ${styles.kicker}`}>[ Subject 001 ] — Earth, year 2100</span>
+        <span className={`eyebrow ${styles.kicker}`}>[ Subject 001 ] — Earth, year <CurrentYear /></span>
 
         <h1 className={styles.name}>
           <span className={`serif ${styles.first}`}>{profile.firstName}</span>
@@ -55,7 +56,7 @@ export default function Hero() {
           <div className={`${styles.hud} ${styles.hudId}`}>
             <div className={styles.hudCard}>
               <span className={styles.hudLabel}>ID</span>
-              <span className="mono">{profile.initials} / 2100</span>
+              <span className="mono">{profile.initials} / <CurrentYear /></span>
             </div>
             <span className={styles.hudLine} />
           </div>

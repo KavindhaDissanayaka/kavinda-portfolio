@@ -26,3 +26,12 @@
 .body p {
   margin: 0 0 14px;
 }
+
+@media (max-width: 520px) {
+  .box {
+    padding: 22px 18px;
+  }
+  .title {
+    font-size: 22px;
+  }
+}

@@ -193,3 +193,20 @@
     max-height: 480px;
   }
 }
+
+@media (max-width: 520px) {
+  .grid {
+    gap: 20px;
+  }
+  .playBtn {
+    width: 64px;
+    height: 64px;
+  }
+  .item {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .list {
+    max-height: 420px;
+  }
+}
