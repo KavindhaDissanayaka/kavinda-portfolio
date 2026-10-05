@@ -1,0 +1,157 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.6s, border-color 0.6s;
+}
+
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Who */
+.who {
+  grid-column: span 7;
+  padding: 40px;
+  min-height: 340px;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.statement {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.2;
+}
+
+.detail {
+  margin: 0;
+  color: var(--muted);
+  max-width: 560px;
+}
+
+/* Currently */
+.now {
+  grid-column: span 5;
+  padding: 40px;
+  min-height: 340px;
+  justify-content: space-between;
+  gap: 32px;
+  background: var(--inv-bg);
+  color: var(--inv-ink);
+  border-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.ringLarge,
+.ringSmall {
+  position: absolute;
+  border-radius: 50%;
+}
+.ringLarge {
+  right: -90px;
+  bottom: -90px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid var(--inv-line);
+}
+.ringSmall {
+  right: -40px;
+  bottom: -40px;
+  width: 160px;
+  height: 160px;
+  border: 1px dashed var(--inv-line);
+}
+
+.nowLabel {
+  color: var(--inv-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nowText {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.35;
+  position: relative;
+}
+
+.nowMeta {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--inv-muted);
+  position: relative;
+}
+
+/* Stats */
+.stat {
+  grid-column: span 4;
+  gap: 6px;
+}
+
+.statValue {
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.statSuffix {
+  color: var(--accent);
+}
+
+.statLabel {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Coordinates */
+.coords {
+  grid-column: span 4;
+  background: var(--accent-soft);
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.coordsLabel {
+  color: var(--accent);
+}
+
+.coordsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .who,
+  .now,
+  .stat,
+  .coords {
+    grid-column: span 12;
+  }
+  .who,
+  .now {
+    padding: 32px;
+    min-height: 0;
+  }
+}

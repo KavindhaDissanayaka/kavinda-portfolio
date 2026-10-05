@@ -1,0 +1,246 @@
+/* ─────────────────────────────────────────────
+   Atmospheres (themes). Switched by data-atmosphere on <html>.
+   Add a new atmosphere by copying a block and listing it in
+   src/components/AtmosphereSwitch.tsx.
+   ───────────────────────────────────────────── */
+:root,
+[data-atmosphere="day"] {
+  --bg: #e9edee;
+  --dot: rgba(17, 26, 32, 0.08);
+  --surface: #f7f9f9;
+  --surface-2: #dce3e4;
+  --glass: rgba(247, 249, 249, 0.72);
+  --ink: #111a20;
+  --muted: #55606a;
+  --line: rgba(17, 26, 32, 0.1);
+  --line-strong: rgba(17, 26, 32, 0.22);
+  --accent: #1c7268;
+  --accent-soft: rgba(28, 114, 104, 0.12);
+  --on-accent: #ffffff;
+  --shadow: rgba(17, 26, 32, 0.18);
+  --inv-bg: #111a20;
+  --inv-ink: #e9edee;
+  --inv-muted: #9aa6af;
+  --inv-line: rgba(233, 237, 238, 0.16);
+  color-scheme: light;
+}
+
+[data-atmosphere="dawn"] {
+  --bg: #f2eae3;
+  --dot: rgba(34, 24, 15, 0.08);
+  --surface: #fbf7f3;
+  --surface-2: #e7dbcf;
+  --glass: rgba(251, 247, 243, 0.72);
+  --ink: #22180f;
+  --muted: #6a5a4e;
+  --line: rgba(34, 24, 15, 0.1);
+  --line-strong: rgba(34, 24, 15, 0.22);
+  --accent: #a84a26;
+  --accent-soft: rgba(168, 74, 38, 0.12);
+  --on-accent: #ffffff;
+  --shadow: rgba(80, 45, 20, 0.18);
+  --inv-bg: #2a1e15;
+  --inv-ink: #f2eae3;
+  --inv-muted: #bba898;
+  --inv-line: rgba(242, 234, 227, 0.16);
+  color-scheme: light;
+}
+
+[data-atmosphere="dusk"] {
+  --bg: #1c2131;
+  --dot: rgba(237, 235, 245, 0.07);
+  --surface: #252b3e;
+  --surface-2: #30374d;
+  --glass: rgba(37, 43, 62, 0.72);
+  --ink: #edebf5;
+  --muted: #a9b0c6;
+  --line: rgba(237, 235, 245, 0.12);
+  --line-strong: rgba(237, 235, 245, 0.24);
+  --accent: #a9c1ff;
+  --accent-soft: rgba(169, 193, 255, 0.14);
+  --on-accent: #141a2a;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --inv-bg: #edebf5;
+  --inv-ink: #1c2131;
+  --inv-muted: #535b74;
+  --inv-line: rgba(28, 33, 49, 0.16);
+  color-scheme: dark;
+}
+
+:root {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: "Instrument Serif";
+  --live: #2eb48c;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+  --max: 1240px;
+  --gutter: 32px;
+}
+
+/* ───────────── Base ───────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  /* clip (not hidden): hidden would make <body> a scroll container and break the sticky header */
+  overflow-x: clip;
+  transition: background-color 0.6s ease, color 0.6s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+a:hover {
+  opacity: 0.75;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ───────────── Shared utilities ───────────── */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--live);
+  flex: none;
+  animation: pulse 2.4s ease-out infinite;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-weight: 500;
+  gap: 10px;
+}
+.pillAccent {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.pillGhost {
+  border: 1px solid var(--line-strong);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(46, 180, 140, 0.55); }
+  70% { box-shadow: 0 0 0 10px rgba(46, 180, 140, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 180, 140, 0); }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gutter: 20px;
+  }
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,28 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--line-strong);
+  background: var(--surface);
+  max-width: 720px;
+}
+.code {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.body {
+  color: var(--muted);
+}
+.body p {
+  margin: 0 0 14px;
+}
