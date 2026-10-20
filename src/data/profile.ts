@@ -293,7 +293,7 @@ projects: [
   ] satisfies NavItem[],
 
   contact: {
-    email: "[your@email.com]",
+    email: "[kavinda.dissanayaka@gmail.com]",
     intro: "Interested in backend engineering, ASP.NET, APIs, business applications, architecture or building something useful from the ground up? Let's open a channel.",
     links: [
       { label: "LinkedIn", handle: socials.linkedin.handle, href: socials.linkedin.url },
