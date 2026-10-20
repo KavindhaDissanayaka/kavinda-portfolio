@@ -11,7 +11,7 @@ export default function Marquee() {
         {items.map((m, i) => (
           <Fragment key={i}>
             <span className={m.italic ? styles.italic : undefined}>{m.text}</span>
-            <span className={styles.star}>✳</span>
+            <span className={styles.star}>|</span>
           </Fragment>
         ))}
       </div>

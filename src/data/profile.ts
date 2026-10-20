@@ -56,7 +56,7 @@ export const profile = {
   firstName: "Kavinda",
   lastName: "Dissanayaka",
   initials: "KD",
-  role: "ASP.NET Web API Engineer",
+  role: "Software Engineer",
   focus: "building reliable backend systems and human-friendly business applications",
   portrait: "/portrait.webp",
 
