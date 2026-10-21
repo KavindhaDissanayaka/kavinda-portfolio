@@ -58,9 +58,9 @@ export default function NavOrb({ alert = false }: { alert?: boolean }) {
         <span className={styles.face}>
           <Image src="/nav-portrait.png" alt="" width={46} height={46} className={styles.img} />
         </span>
-        <span className={styles.warn} aria-hidden>
+        {/* <span className={styles.warn} aria-hidden>
           !
-        </span>
+        </span> */}
       </button>
 
       {open && (
