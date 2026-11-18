@@ -55,7 +55,7 @@ export const socials = {
 export const profile = {
   firstName: "Kavinda",
   lastName: "Dissanayaka",
-  initials: "KD",
+  initials: "KSD",
   role: "Software Engineer",
   focus: "building reliable backend systems and human-friendly business applications",
   portrait: "/portrait.webp",
