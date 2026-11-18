@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section id="top" className={`container ${styles.hero}`}>
       <div className={styles.copy}>
-        <span className={`eyebrow ${styles.kicker}`}>[ Subject 001 ] — Earth, year <CurrentYear /></span>
+        <span className={`eyebrow ${styles.kicker}`}>Software Engineer</span>
 
         <h1 className={styles.name}>
           <span className={`serif ${styles.first}`}>{profile.firstName}</span>
@@ -26,7 +26,7 @@ export default function Hero() {
   I turn complex business needs into{" "}
   <span className={`serif ${styles.ledeSerif}`}>calm, dependable software</span>, from the database and APIs
   behind the scenes to the screens people use every day, building systems that last and make work feel
-  simpler and more human.
+  simpler.
 </p>
 
         <div className={styles.ctas}>
@@ -59,13 +59,13 @@ export default function Hero() {
             />
           </div>
 
-          <div className={`${styles.hud} ${styles.hudId}`}>
+          {/* <div className={`${styles.hud} ${styles.hudId}`}>
             <div className={styles.hudCard}>
               <span className={styles.hudLabel}>ID</span>
               <span className="mono">{profile.initials} / <CurrentYear /></span>
             </div>
             <span className={styles.hudLine} />
-          </div>
+          </div> */}
 
           <div className={`${styles.hud} ${styles.hudStatus}`}>
             <span className={styles.hudLine} />

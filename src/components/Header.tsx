@@ -48,7 +48,7 @@ export default function Header({ inner = false }: { inner?: boolean }) {
               ← Back to portfolio
             </Link>
           ) : (
-            <span className={styles.tag}>Human Interface · v<CurrentYear /></span>
+            <span className={styles.tag}>KAVINDA - ONLINE : <CurrentYear /></span>
           )}
         </div>
 

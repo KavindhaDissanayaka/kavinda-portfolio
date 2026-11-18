@@ -72,6 +72,14 @@ export const profile = {
     { text: "calm by intent", italic: true },
     { text: "Human at the core", italic: false },
     { text: "backend first, always learning", italic: true },
+
+    { text: "Making multi-step approvals easier to manage", italic: true },
+    { text: "Connecting existing systems to new workflows", italic: true },
+    { text: "Building around real business processes", italic: true },
+    { text: "Designing for the people who use the system every day", italic: true },
+    { text: "Working directly with clients and training users", italic: true },
+    { text: "Growing from backend development into full-stack delivery", italic: true },
+
   ],
 
   about: {
